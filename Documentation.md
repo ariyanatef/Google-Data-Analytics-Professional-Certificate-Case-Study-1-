@@ -8,7 +8,7 @@ Analyze, Share, and Act. Along the way, the Case Study Roadmap tables — includ
 questions and key tasks — will help you stay on the right path.
 
 
-Scenario
+Scenario:
 
 You are a junior data analyst working on the marketing analyst team at Cyclistic, a bike-share
 company in Chicago. The director of marketing believes the company’s future success
@@ -19,7 +19,7 @@ members. But first, Cyclistic executives must approve your recommendations, so t
 backed up with compelling data insights and professional data visualizations.
 
 
-Characters and teams
+Characters and teams:
 
 ● Cyclistic: A bike-share program that features more than 5,800 bicycles and 600
 docking stations. Cyclistic sets itself apart by also offering reclining bikes, hand
@@ -42,7 +42,7 @@ Cyclistic achieve them.
 whether to approve the recommended marketing program.
 
 
-About the company
+About the company:
 
 In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown
 to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across
