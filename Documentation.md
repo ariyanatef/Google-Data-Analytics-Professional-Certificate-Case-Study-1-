@@ -163,8 +163,7 @@ FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 Here we can see that there are null values in start_station_name, start_station_id, end_station_name, end_station_id,
 end_lat, & end_lng. The zeroes in the other column means that they do NOT have null values.
 
-
-13a. Because of the limitations of BigQuery Sandbox, I have decided to filter out the null values to ensure accurate results.
+   a) Because of the limitations of BigQuery Sandbox, I have decided to filter out the null values to ensure accurate results.
 If I was using another SQL platform, I'd most likely delete the nulls. Replacing them with placeholders might impact the
 accuracy due to not having the exact data needed to perform the analysis. I used this query to filter:
 
