@@ -141,9 +141,11 @@ FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 As you can see, there are a total of 6,351,159 rows.
 
 
+
 11. To understand this dataset a little better, we want to see the first 15 rows of this query:
 
 SELECT * FROM `Cyclistics_Data_052025_052026.all_tripdata` LIMIT 15;
+
 
 
 12. We must check what the dataset primary keys are:
@@ -151,6 +153,7 @@ SELECT * FROM `Cyclistics_Data_052025_052026.all_tripdata` LIMIT 15;
 SELECT column_name, data_type
 FROM `Cyclistics_Data_052025_052026`.INFORMATION_SCHEMA.COLUMNS
 WHERE table_name = 'all_tripdata';
+
 According to further research, the ride_id is the primary key and these other column names
 represent the foreign keys that identify the pieces of data.
 
