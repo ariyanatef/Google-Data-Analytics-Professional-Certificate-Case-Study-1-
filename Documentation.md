@@ -173,6 +173,7 @@ SELECT COUNT(*) - COUNT(ride_id) ride_id,
  COUNT(*) - COUNT(end_lng) end_lng,
  COUNT(*) - COUNT(member_casual) member_casual
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
+
 Here we can see that there are null values in start_station_name, start_station_id, end_station_name, end_station_id,
 end_lat, & end_lng. The zeroes in the other column means that they do NOT have null values.
 
@@ -209,6 +210,7 @@ GROUP BY rideable_type;
 SELECT DISTINCT member_casual, COUNT(*) AS count_member_type
 FROM `Cyclistics_Data_052025_052026.all_tripdata`
 GROUP BY member_casual;
+
 In this dataset (and this can change if you are using an older version or if this is being done in the future) that
 rideable_type consists of electric_bike and classic_bike with 4,218,872 & 2,132,287 trip_type values respectively.
 We also see in member_casual that the two rows are member and casual (this shouldn't change but the values might depending on your dataset)
