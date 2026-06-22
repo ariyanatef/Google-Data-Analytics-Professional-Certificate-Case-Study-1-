@@ -1,4 +1,4 @@
-# Information about the Case Study
+# Case Study 1: How does a bike-share navigate speedy success
 Introduction:
 
 Welcome to the Cyclistic bike-share analysis case study! In this case study, you work for a
