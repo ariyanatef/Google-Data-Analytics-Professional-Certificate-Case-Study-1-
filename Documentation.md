@@ -94,6 +94,7 @@ what I was working with. While I would highly recommend you to do so, this is no
 5. I was prompted to create a new dataset which I called "CyclisticsData"
 6. I was then prompted to created a table which I called 202505-divvy-tripdata (how you name your table is up to you, but keep it consistent with each 
 7. Steps 4-6 was repeated, changing table names to match the csv files being downloaded.
+
    a. For files larger than 100MB, upload them onto google drive, open with google
 sheets, press continue with connected sheets if it says file too large, and once it
 says, “Seamlessly access large files using Connected Sheets & BigQuery”, press
@@ -225,20 +226,88 @@ which have 4,068,257 & 2,282,902 count_member_type respectively.
 16. In Step 13a, we filtered out the NULL values. In Step 14, we found out there were 35 duplicates on ride_id.
 So I have decided to combine the NULL values query and the SELECT DISTINCT query in order to make the code more readable
 and consistent.
-
-
+```sql
+SELECT DISTINCT *
+FROM `Cyclistics_Data_052025_052026.all_tripdata`
+WHERE start_station_name IS NOT NULL
+  AND start_station_id IS NOT NULL
+  AND end_station_name IS NOT NULL
+  AND end_station_id IS NOT NULL
+  AND end_lat IS NOT NULL
+  AND end_lng IS NOT NULL;
+```
 # Analyze and Share Data
 17. Download the results from Step 16 as a csv file and upload onto Tableau for analysis. Our main goal here is to understand distinct usage patterns
 and how members use the stations compared to casual riders.
 
-18. Here we are trying to compare the specific types of bikes and how often these bikes are used by both members and casuals. I used a pie chart to give me a percentage of the
-population that use both bikes and who is what. The results showed that members tend to use their bikes more often than casuals. Among the electric bike users however, we
-see that there is a slight difference between who uses their bikes more often. Overall though, we see a large difference between the members and casuals. Below is the finalized chart:
+18. Here we are trying to compare the specific types of bikes and how often these bikes are used by both members and casual riders. I used a pie chart to give me a percentage of the
+population that use both bikes and who is what. The results showed that members tend to use their bikes more often than casual riders. Among the electric bike users however, we
+see that there is a slight difference between who uses their bikes more often. Overall though, we see a large difference between the members and casual riders. Below is the finalized chart:
 
 ![Total Bike Types](Total%20Bike%20Types.png)
 
-19. To further discover how annual members and casuals use their bikes differently, let’s explore the amount of trips they take monthly, daily, and by the hour. Using line graphs, I
+19. To further discover how annual members and casual riders use their bikes differently, let’s explore the amount of trips they take monthly, daily, and by the hour. Using line graphs, I
 would drag the ride_id, member_casual, and started_at fields into their respective rows
 and columns and use the dropdown pills at the started_at field to adjust it based on hour,
 week, and month. Below is the finalized graph:
 
+![Total Trips](Total%20Trips%202025-26.png)
+
+After interpreting the data and visuals, we see that overall members go on way more trips than
+casual riders. We also see that riders tend to ride the most from April-May when the temperature
+would be warm, but not excruciatingly hot. We also see that per hour, members have a peak
+from 6-8AM and 4-6PM. This could indicate that they use it the most when they have to
+commute to a workplace or college and then come back home. Among casual users however,
+the trend is more steady hourly with it increasing in the evening which most likely indicates that
+they go whenever they please and mainly go for leisure. However to get a better grasp of the
+trends, we should take a closer look at average time they ride.
+
+20.  To find the average riding duration, I had to make a new field called ride_length_mins. I
+had to use this calculation: DATEDIFF('minute', [Started At], [Ended At]) and change the
+applied cell from SUM to AVG. Once I did that, I put the member_casual and started_at fields in their appropriate row and column. Below is the finalized graph:
+
+![Average Trip Duration](Average%20Trip%20Duration%202025-26.png)
+
+21. After we use the start latitude and longitude values to make a map showing the most common hotspots of both casual riders and members. From here, it looks like casual riders start their trips around beaches, museums, parks,
+aquariums, and harbors. Members, however, start their trips near universities, residential areas, restaurants, hospitals, grocery stores, theaters, schools, banks, factories, train
+stations, parks, and plazas. We can see this on the map below:
+
+![Starting Locations](Total%20Trips%20at%20Starting%20Locations%202025-26.png)
+
+
+22. Using the ending longitudinal and latitudinal cells to make another map, we see a similar pattern with the ending trips. Casual riders tend to end their journeys
+near recreational sites like museums, parks, and aquariums. Members tend to end their
+journeys near universities, residential, and commercial areas. This further proves that
+casual riders use their bikes for leisure and recreational uses whereas members use
+them for professional and daily activities.
+
+# Summary
+For Casual Riders:
+
+Casual riders prefer to mostly bike throughout the day and they tend to travel the most during
+weekends and especially during the summer and spring months. They also mainly travel for
+leisure and recreational activities. They cover way more distances (about twice as much)
+compared to members but they take fewer overall trips.
+
+Also, casual riders tend to start and end their journeys near different recreational sites such as
+parks, aquariums, coastal areas, and other leisure locations.
+
+For members:
+
+Members tend to travel the most during weekdays, also during summer and spring seasons
+however they tend to travel the most from 8am-5pm. They take more frequent trips however
+they cover shorter distances.
+
+Also, they tend to start and end their journeys near locations such as universities, residential
+areas, and commercial locations, showing they rely on their bikes for daily activities such as
+going to work or school.
+
+# Act
+In order to get casual riders to convert to members, I would recommend these things:
+
+● Target casual riders during the spring and summer months for marketing campaigns.
+● Put marketing at the recreational/tourist hotspots such as posters or billboards.
+● Provide potential discounts for people who travel long distances, and provide free trials
+in order to let them have a feel of the service.
+● Provide seasonal/weekend-only memberships as well since that is when they are most
+active.
