@@ -93,6 +93,7 @@ continue to upload the dataset, select your project name and dataset, then press
 continue.
 
 8. To combine the files into a singular data table, I used this query:
+
 CREATE TABLE IF NOT EXISTS `Cyclistics_Data_052025_052026.all_tripdata` AS
 (
   SELECT * FROM `Cyclistics_Data_052025_052026.202505-divvy-tripdata`
@@ -122,16 +123,16 @@ CREATE TABLE IF NOT EXISTS `Cyclistics_Data_052025_052026.all_tripdata` AS
   SELECT * FROM `Cyclistics_Data_052025_052026.202605-divvy-tripdata`
 );
 
-9. After running this query, click on "Go to Table" to confirm the table has been created.
-10. Once the table has been created, let's run this query to find out how many rows are in this tab:
+10. After running this query, click on "Go to Table" to confirm the table has been created.
+11. Once the table has been created, let's run this query to find out how many rows are in this tab:
 SELECT COUNT (*) AS total_rows
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 As you can see, there are a total of 6,351,159 rows.
 
-11. To understand this dataset a little better, we want to see the first 15 rows of this query:
+12. To understand this dataset a little better, we want to see the first 15 rows of this query:
 SELECT * FROM `Cyclistics_Data_052025_052026.all_tripdata` LIMIT 15;
 
-12. We must check what the dataset primary keys are:
+13. We must check what the dataset primary keys are:
 SELECT column_name, data_type
 FROM `Cyclistics_Data_052025_052026`.INFORMATION_SCHEMA.COLUMNS
 WHERE table_name = 'all_tripdata';
