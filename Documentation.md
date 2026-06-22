@@ -306,8 +306,11 @@ going to work or school.
 In order to get casual riders to convert to members, I would recommend these things:
 
 ● Target casual riders during the spring and summer months for marketing campaigns.
+
 ● Put marketing at the recreational/tourist hotspots such as posters or billboards.
+
 ● Provide potential discounts for people who travel long distances, and provide free trials
 in order to let them have a feel of the service.
+
 ● Provide seasonal/weekend-only memberships as well since that is when they are most
 active.
