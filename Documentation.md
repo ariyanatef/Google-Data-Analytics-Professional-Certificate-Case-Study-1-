@@ -133,15 +133,18 @@ CREATE TABLE IF NOT EXISTS `Cyclistics_Data_052025_052026.all_tripdata` AS
 
 9. After running this query, click on "Go to Table" to confirm the table has been created.
 
+
 10. Once the table has been created, let's run this query to find out how many rows are in this tab:
 
 SELECT COUNT (*) AS total_rows
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 As you can see, there are a total of 6,351,159 rows.
 
+
 11. To understand this dataset a little better, we want to see the first 15 rows of this query:
 
 SELECT * FROM `Cyclistics_Data_052025_052026.all_tripdata` LIMIT 15;
+
 
 12. We must check what the dataset primary keys are:
 
@@ -150,6 +153,7 @@ FROM `Cyclistics_Data_052025_052026`.INFORMATION_SCHEMA.COLUMNS
 WHERE table_name = 'all_tripdata';
 According to further research, the ride_id is the primary key and these other column names
 represent the foreign keys that identify the pieces of data.
+
 
 # Clean Data
 13. In Step 11, we saw the first 15 rows and discovered a lot of null values. We must clean that up
@@ -172,6 +176,7 @@ FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 Here we can see that there are null values in start_station_name, start_station_id, end_station_name, end_station_id,
 end_lat, & end_lng. The zeroes in the other column means that they do NOT have null values.
 
+
 13a. Because of the limitations of BigQuery Sandbox, I have decided to filter out the null values to ensure accurate results.
 If I was using another SQL platform, I'd most likely delete the nulls. Replacing them with placeholders might impact the
 accuracy due to not having the exact data needed to perform the analysis. I used this query to filter:
@@ -185,11 +190,13 @@ WHERE start_station_name IS NOT NULL
   AND end_lat IS NOT NULL
   AND end_lng IS NOT NULL;
 
+
 14. Now we have to find out if there are any duplicates on the ride_id primary key. Using this query,
 we have 35 queries we must remove. This will be addressed in Step 16:
 
 SELECT COUNT (ride_id) - COUNT (DISTINCT ride_id) AS duplicate_rows
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
+
 
 15. Now we need to retrieve the records of the rideable_type and member_casual volumn and find out their unique values:
 
@@ -207,9 +214,11 @@ rideable_type consists of electric_bike and classic_bike with 4,218,872 & 2,132,
 We also see in member_casual that the two rows are member and casual (this shouldn't change but the values might depending on your dataset)
 which have 4,068,257 & 2,282,902 count_member_type respectively.
 
+
 16. In Step 13a, we filtered out the NULL values. In Step 14, we found out there were 35 duplicates on ride_id.
 So I have decided to combine the NULL values query and the SELECT DISTINCT query in order to make the code more readable
 and consistent.
+
 
 # Analyze and Share Data
 17. Download the results from Step 16 as a csv file and upload onto Tableau for analysis. Our main goal here is to understand distinct usage patterns
