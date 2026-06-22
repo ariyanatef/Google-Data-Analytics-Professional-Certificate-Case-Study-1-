@@ -39,6 +39,7 @@ Cyclistic achieve them.
 ● Cyclistic executive team: The notoriously detail-oriented executive team will decide
 whether to approve the recommended marketing program.
 
+
 About the company
 
 In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown
@@ -61,6 +62,7 @@ annual members. In order to do that, however, the team needs to better understan
 annual members and casual riders differ, why casual riders would buy a membership, and how
 digital media could affect their marketing tactics. Moreno and her team are interested in
 analyzing the Cyclistic historical bike trip data to identify trends.
+
 
 # Ask
 Three questions will guide the future marketing program:
