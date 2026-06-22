@@ -1,5 +1,6 @@
 # Information about the Case Study
 Introduction:
+
 Welcome to the Cyclistic bike-share analysis case study! In this case study, you work for a
 fictional company, Cyclistic, along with some key team members. In order to answer the
 business questions, follow the steps of the data analysis process: Ask, Prepare, Process,
@@ -7,6 +8,7 @@ Analyze, Share, and Act. Along the way, the Case Study Roadmap tables — includ
 questions and key tasks — will help you stay on the right path.
 
 Scenario
+
 You are a junior data analyst working on the marketing analyst team at Cyclistic, a bike-share
 company in Chicago. The director of marketing believes the company’s future success
 depends on maximizing the number of annual memberships. Therefore, your team wants to
@@ -16,6 +18,7 @@ members. But first, Cyclistic executives must approve your recommendations, so t
 backed up with compelling data insights and professional data visualizations.
 
 Characters and teams
+
 ● Cyclistic: A bike-share program that features more than 5,800 bicycles and 600
 docking stations. Cyclistic sets itself apart by also offering reclining bikes, hand
 tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities
@@ -37,6 +40,7 @@ Cyclistic achieve them.
 whether to approve the recommended marketing program.
 
 About the company
+
 In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown
 to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across
 Chicago. The bikes can be unlocked from one station and returned to any other station in the
