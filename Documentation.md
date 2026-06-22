@@ -84,7 +84,7 @@ You will produce a report with the following deliverables:
 Use the following Case Study Roadmap as a guide.
 
 # Prepare: 
-*sidenote: I did make separate labeled tabs for the SQL queries to ensure there would be no confusion with
+*Sidenote: I did make separate labeled tabs for the SQL queries to ensure there would be no confusion with
 what I was working with. While I would highly recommend you to do so, this is not a requirement.
 
 1. I downloaded the last 12 months of trip data (in my case from May 2025-May 2026).
