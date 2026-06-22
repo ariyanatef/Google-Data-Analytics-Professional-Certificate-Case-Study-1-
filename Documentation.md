@@ -101,7 +101,7 @@ continue to upload the dataset, select your project name and dataset, then press
 continue.
 
 8. To combine the files into a singular data table, I used this query:
-
+```sql
 CREATE TABLE IF NOT EXISTS `Cyclistics_Data_052025_052026.all_tripdata` AS
 (
   SELECT * FROM `Cyclistics_Data_052025_052026.202505-divvy-tripdata`
@@ -130,38 +130,38 @@ CREATE TABLE IF NOT EXISTS `Cyclistics_Data_052025_052026.all_tripdata` AS
   UNION ALL
   SELECT * FROM `Cyclistics_Data_052025_052026.202605-divvy-tripdata`
 );
-
+```
 9. After running this query, click on "Go to Table" to confirm the table has been created.
 
 
 10. Once the table has been created, let's run this query to find out how many rows are in this tab:
-
+```sql
 SELECT COUNT (*) AS total_rows
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 As you can see, there are a total of 6,351,159 rows.
-
+```
 
 
 11. To understand this dataset a little better, we want to see the first 15 rows of this query:
-
+```sql
 SELECT * FROM `Cyclistics_Data_052025_052026.all_tripdata` LIMIT 15;
-
+```
 
 
 12. We must check what the dataset primary keys are:
-
+```sql
 SELECT column_name, data_type
 FROM `Cyclistics_Data_052025_052026`.INFORMATION_SCHEMA.COLUMNS
 WHERE table_name = 'all_tripdata';
 
 According to further research, the ride_id is the primary key and these other column names
 represent the foreign keys that identify the pieces of data.
-
+```
 
 # Clean Data
 13. In Step 11, we saw the first 15 rows and discovered a lot of null values. We must clean that up
 alongside the rest of the null values on the dataset. To find out where the remaining null values are, we use this query:
-
+```sql
 SELECT COUNT(*) - COUNT(ride_id) ride_id,
  COUNT(*) - COUNT(rideable_type) rideable_type,
  COUNT(*) - COUNT(started_at) started_at,
@@ -176,7 +176,7 @@ SELECT COUNT(*) - COUNT(ride_id) ride_id,
  COUNT(*) - COUNT(end_lng) end_lng,
  COUNT(*) - COUNT(member_casual) member_casual
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
-
+```
 Here we can see that there are null values in start_station_name, start_station_id, end_station_name, end_station_id,
 end_lat, & end_lng. The zeroes in the other column means that they do NOT have null values.
 
@@ -184,7 +184,7 @@ end_lat, & end_lng. The zeroes in the other column means that they do NOT have n
 13a. Because of the limitations of BigQuery Sandbox, I have decided to filter out the null values to ensure accurate results.
 If I was using another SQL platform, I'd most likely delete the nulls. Replacing them with placeholders might impact the
 accuracy due to not having the exact data needed to perform the analysis. I used this query to filter:
-
+```sql
 SELECT *
 FROM 'Cyclistics_Data_052025_052026.all_tripdata'
 WHERE start_station_name IS NOT NULL
@@ -193,19 +193,19 @@ WHERE start_station_name IS NOT NULL
   AND end_station_id IS NOT NULL
   AND end_lat IS NOT NULL
   AND end_lng IS NOT NULL;
-
+```
 
 14. Now we have to find out if there are any duplicates on the ride_id primary key. Using this query,
 we have 35 queries we must remove. This will be addressed in Step 16:
-
+```sql
 SELECT COUNT (ride_id) - COUNT (DISTINCT ride_id) AS duplicate_rows
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
-
+```
 
 15. Now we need to retrieve the records of the rideable_type and member_casual volumn and find out their unique values:
 
 --Retrieving different unique bike types--
-
+```sql
 SELECT DISTINCT rideable_type, COUNT(rideable_type) AS trip_type
 FROM `Cyclistics_Data_052025_052026.all_tripdata`
 GROUP BY rideable_type;
@@ -215,7 +215,7 @@ GROUP BY rideable_type;
 SELECT DISTINCT member_casual, COUNT(*) AS count_member_type
 FROM `Cyclistics_Data_052025_052026.all_tripdata`
 GROUP BY member_casual;
-
+```
 In this dataset (and this can change if you are using an older version or if this is being done in the future) that
 rideable_type consists of electric_bike and classic_bike with 4,218,872 & 2,132,287 trip_type values respectively.
 We also see in member_casual that the two rows are member and casual (this shouldn't change but the values might depending on your dataset)
