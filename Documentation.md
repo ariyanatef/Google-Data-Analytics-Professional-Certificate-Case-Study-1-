@@ -123,19 +123,20 @@ CREATE TABLE IF NOT EXISTS `Cyclistics_Data_052025_052026.all_tripdata` AS
   SELECT * FROM `Cyclistics_Data_052025_052026.202605-divvy-tripdata`
 );
 
-10. After running this query, click on "Go to Table" to confirm the table has been created.
-11. Once the table has been created, let's run this query to find out how many rows are in this tab:
-    
+9. After running this query, click on "Go to Table" to confirm the table has been created.
+
+10. Once the table has been created, let's run this query to find out how many rows are in this tab:
+
 SELECT COUNT (*) AS total_rows
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 As you can see, there are a total of 6,351,159 rows.
 
-13. To understand this dataset a little better, we want to see the first 15 rows of this query:
-    
+11. To understand this dataset a little better, we want to see the first 15 rows of this query:
+
 SELECT * FROM `Cyclistics_Data_052025_052026.all_tripdata` LIMIT 15;
 
-15. We must check what the dataset primary keys are:
-    
+12. We must check what the dataset primary keys are:
+
 SELECT column_name, data_type
 FROM `Cyclistics_Data_052025_052026`.INFORMATION_SCHEMA.COLUMNS
 WHERE table_name = 'all_tripdata';
@@ -163,7 +164,7 @@ FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 Here we can see that there are null values in start_station_name, start_station_id, end_station_name, end_station_id,
 end_lat, & end_lng. The zeroes in the other column means that they do NOT have null values.
 
-   a) Because of the limitations of BigQuery Sandbox, I have decided to filter out the null values to ensure accurate results.
+13a. Because of the limitations of BigQuery Sandbox, I have decided to filter out the null values to ensure accurate results.
 If I was using another SQL platform, I'd most likely delete the nulls. Replacing them with placeholders might impact the
 accuracy due to not having the exact data needed to perform the analysis. I used this query to filter:
 
@@ -176,13 +177,11 @@ WHERE start_station_name IS NOT NULL
   AND end_lat IS NOT NULL
   AND end_lng IS NOT NULL;
 
-
 14. Now we have to find out if there are any duplicates on the ride_id primary key. Using this query,
 we have 35 queries we must remove. This will be addressed in Step 16:
 
 SELECT COUNT (ride_id) - COUNT (DISTINCT ride_id) AS duplicate_rows
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
-
 
 15. Now we need to retrieve the records of the rideable_type and member_casual volumn and find out their unique values:
 
@@ -211,5 +210,4 @@ and how members use the stations compared to casual riders.
 18. Here we are trying to compare the specific types of bikes and how often these bikes are used by both members and casuals. I used a pie chart to give me a percentage of the
 population that use both bikes and who is what. The results showed that members tend to use their bikes more often than casuals. Among the electric bike users however, we
 see that there is a slight difference between who uses their bikes more often. Overall though, we see a large difference between the members and casuals.
-
-![Total Bike Types](Total Bike Types.png)
+![Total Bike Types](Total%20Bike%20Types.png)
