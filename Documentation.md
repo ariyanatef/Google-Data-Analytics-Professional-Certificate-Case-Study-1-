@@ -244,14 +244,14 @@ and how members use the stations compared to casual riders.
 population that use both bikes and who is what. The results showed that members tend to use their bikes more often than casual riders. Among the electric bike users however, we
 see that there is a slight difference between who uses their bikes more often. Overall though, we see a large difference between the members and casual riders. Below is the finalized chart:
 
-![Total Bike Types](Total%20Bike%20Types.png)
+![Total Bike Types](data%20visuals/Total%20Bike%20Types.png)
 
 19. To further discover how annual members and casual riders use their bikes differently, let’s explore the amount of trips they take monthly, daily, and by the hour. Using line graphs, I
 would drag the ride_id, member_casual, and started_at fields into their respective rows
 and columns and use the dropdown pills at the started_at field to adjust it based on hour,
 week, and month. Below is the finalized graph:
 
-![Total Trips](Total%20Trips%202025-26.png)
+![Total Trips](data%20visuals/Total%20Trips%202025-26.png)
 
 After interpreting the data and visuals, we see that overall members go on way more trips than
 casual riders. We also see that riders tend to ride the most from April-May when the temperature
@@ -266,20 +266,21 @@ trends, we should take a closer look at average time they ride.
 had to use this calculation: DATEDIFF('minute', [Started At], [Ended At]) and change the
 applied cell from SUM to AVG. Once I did that, I put the member_casual and started_at fields in their appropriate row and column. Below is the finalized graph:
 
-![Average Trip Duration](Average%20Trip%20Duration%202025-26.png)
+![Average Trip Duration](data%20visuals/Average%20Trip%20Duration%202025-26.png)
 
 21. After we use the start latitude and longitude values to make a map showing the most common hotspots of both casual riders and members. From here, it looks like casual riders start their trips around beaches, museums, parks,
 aquariums, and harbors. Members, however, start their trips near universities, residential areas, restaurants, hospitals, grocery stores, theaters, schools, banks, factories, train
 stations, parks, and plazas. We can see this on the map below:
 
-![Starting Locations](Total%20Trips%20at%20Starting%20Locations%202025-26.png)
-
+![Starting Locations](data%20visuals/Total%20Trips%20at%20Starting%20Locations%202025-26.png)
 
 22. Using the ending longitudinal and latitudinal cells to make another map, we see a similar pattern with the ending trips. Casual riders tend to end their journeys
 near recreational sites like museums, parks, and aquariums. Members tend to end their
 journeys near universities, residential, and commercial areas. This further proves that
 casual riders use their bikes for leisure and recreational uses whereas members use
 them for professional and daily activities.
+
+![Ending Locations](data%20visuals/Total%20Trips%20at%20Ending%20Locations%202025-26.png)
 
 # Summary
 For Casual Riders:
