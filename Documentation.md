@@ -209,5 +209,12 @@ and how members use the stations compared to casual riders.
 
 18. Here we are trying to compare the specific types of bikes and how often these bikes are used by both members and casuals. I used a pie chart to give me a percentage of the
 population that use both bikes and who is what. The results showed that members tend to use their bikes more often than casuals. Among the electric bike users however, we
-see that there is a slight difference between who uses their bikes more often. Overall though, we see a large difference between the members and casuals.
+see that there is a slight difference between who uses their bikes more often. Overall though, we see a large difference between the members and casuals. Below is the finalized chart:
+
 ![Total Bike Types](Total%20Bike%20Types.png)
+
+19. To further discover how annual members and casuals use their bikes differently, let’s explore the amount of trips they take monthly, daily, and by the hour. Using line graphs, I
+would drag the ride_id, member_casual, and started_at fields into their respective rows
+and columns and use the dropdown pills at the started_at field to adjust it based on hour,
+week, and month. Below is the finalized graph:
+
