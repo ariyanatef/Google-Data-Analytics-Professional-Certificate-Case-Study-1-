@@ -163,6 +163,7 @@ FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 Here we can see that there are null values in start_station_name, start_station_id, end_station_name, end_station_id,
 end_lat, & end_lng. The zeroes in the other column means that they do NOT have null values.
 
+
 13a. Because of the limitations of BigQuery Sandbox, I have decided to filter out the null values to ensure accurate results.
 If I was using another SQL platform, I'd most likely delete the nulls. Replacing them with placeholders might impact the
 accuracy due to not having the exact data needed to perform the analysis. I used this query to filter:
@@ -176,13 +177,15 @@ WHERE start_station_name IS NOT NULL
   AND end_lat IS NOT NULL
   AND end_lng IS NOT NULL;
 
+
 14. Now we have to find out if there are any duplicates on the ride_id primary key. Using this query,
 we have 35 queries we must remove. This will be addressed in Step 16:
 
 SELECT COUNT (ride_id) - COUNT (DISTINCT ride_id) AS duplicate_rows
 FROM `Cyclistics_Data_052025_052026.all_tripdata`;
 
-16. Now we need to retrieve the records of the rideable_type and member_casual volumn and find out their unique values:
+
+15. Now we need to retrieve the records of the rideable_type and member_casual volumn and find out their unique values:
 
 --Retrieving different unique bike types--
 SELECT DISTINCT rideable_type, COUNT(rideable_type) AS trip_type
