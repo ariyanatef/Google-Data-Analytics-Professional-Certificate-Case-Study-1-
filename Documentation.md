@@ -89,7 +89,7 @@ what I was working with. While I would highly recommend you to do so, this is no
 
 1. I downloaded the last 12 months of trip data (in my case from May 2025-May 2026).
 2. I then created a folder in my desktop to put the last 12 months of csv files.
-3. I opened BigQuery Sandbox and created a new projected named "Cyclistics Data Analysis"
+3. I opened BigQuery Sandbox and created a new project named "Cyclistics Data Analysis"
 4. I uploaded the 202505 into BigQuery
 5. I was prompted to create a new dataset which I called "CyclisticsData"
 6. I was then prompted to created a table which I called 202505-divvy-tripdata (how you name your table is up to you, but keep it consistent with each 
