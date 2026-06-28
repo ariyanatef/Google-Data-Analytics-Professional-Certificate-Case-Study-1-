@@ -92,7 +92,7 @@ what I was working with. While I would highly recommend you to do so, this is no
 3. I opened BigQuery Sandbox and created a new project named "Cyclistics Data Analysis"
 4. I uploaded the 202505 into BigQuery
 5. I was prompted to create a new dataset which I called "CyclisticsData"
-6. I was then prompted to created a table which I called 202505-divvy-tripdata (how you name your table is up to you, but keep it consistent with each 
+6. I was then prompted to created a table which I called 202505-divvy-tripdata (how you name your table is up to you, but keep it consistent with each file)
 7. Steps 4-6 was repeated, changing table names to match the csv files being downloaded.
 
    a. For files larger than 100MB, upload them onto google drive, open with google
