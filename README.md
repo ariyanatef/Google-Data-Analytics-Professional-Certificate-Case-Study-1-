@@ -1,2 +1,4 @@
-# Google Data Analytics Professional Case Study 1 README
+# Google Data Analytics Professional Case Study 1
 This repository contains the first case study of the Google Data Analytics Professional Certificate. To be able to do this project, go through the certification and then pick the first case study. You can do this with any coding language you know but I wouldn't recommend doing it on Excel due to the sheer amount of data that needs to be dealt with. Since this is not an original project and part of a certification, I also want to give credit to @sophiechin for their guide for this capstone project. Without the guide, I would've gotten lost way too many times.
+
+The steps to replicate this project is in the Capstone Documentation.md
